@@ -1,0 +1,111 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Portfolio</title>
+	<link rel="stylesheet" href="~/Content/site.css" />
+</head>
+<body>
+	<!-- ME -->
+	<section class="me">
+		<div class="container">
+			<h1>Kyle Blair</h1>
+			<h2>Software Developer</h2>
+			<p>
+				Recent Computer Science graduate with experience in full-stack development.
+			</p>
+			<div class="me-buttons">
+				<a href="/Home/About" class="btn secondary">More About Me</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FEATURED PROJECTS -->
+	<section class="section">
+		<div class="container">
+			<h2>Projects</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>Movie Search Website</h3>
+					<p>A website I connected to the TMDB api to search for movies in their database.</p>
+					<div class="skills">
+						<span>C#</span>
+						<span>ASP.NET MVC</span>
+						<span>Bootstrap</span>
+					</div>
+					<a asp-controller="Projects" asp-action="Details" asp-route-id="1" class="btn primary" role="button" aria-label="View details for Movie Search Website">Learn More</a>
+				</div>
+				<div class="card">
+					<h3>Team Generator</h3>
+					<p>A quick team generator that takes user input names and team size.</p>
+					<div class="skills">
+						<span>C#</span>
+						<span>ASP.NET MVC</span>
+						<span>Bootstrap</span>
+					</div>
+					<a asp-controller="Projects" asp-action="Details" asp-route-id="2" class="btn primary" role="button" aria-label="View details for Team Generator">Learn More</a>
+				</div>
+				<div class="card">
+					<h3>Senior Capstone Browser Game</h3>
+					<p>Turn-based RPG with classes, passives, loot, equipment, and more!</p>
+					<div class="skills">
+						<span>C#</span>
+						<span>ASP.NET MVC</span>
+						<span>JavaScript</span>
+					</div>
+					<a asp-controller="Projects" asp-action="Details" asp-route-id="3" class="btn primary" role="button" aria-label="View details for Browser Game">Learn More</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- SKILLS -->
+	<section class="section alt">
+		<div class="container">
+			<h2>Skills</h2>
+			<div class="skills">
+				<span> C#</span>
+				<span>Python</span>
+				<span>HTML / CSS</span>
+				<span>JavaScript</span>
+				<span>SQL</span>
+				<span>Git</span>
+				<span>ASP.NET MVC</span>
+				<span>MongoDB</span>
+				<span>Bootstrap</span>
+				<span>OOP</span>
+				<span>TDD</span>
+				<span>Agile</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- ABOUT PREVIEW -->
+	<section class="section">
+		<div class="container">
+			<h2>About Me</h2>
+			<p>
+				I enjoy building structured, data-driven applications and full-stack web systems.
+				I’m especially interested in backend development, database design, and creating efficient software solutions.
+			</p>
+			<a href="/Home/About">Read more →</a>
+		</div>
+	</section>
+
+	<!-- CONTACT -->
+	<section class="section alt">
+		<div class="container">
+			<h2>Contact</h2>
+			<p>I'm currently open to opportunities. Feel free to reach out.</p>
+			<p>
+				Email: khblair231@gmail.com <br />
+				LinkedIn: <a href="https://www.linkedin.com/in/kyle-blair-22037b2a9" target="_blank">Kyle Blair</a>
+			</p>
+		</div>
+	</section>
+</body>
+</html>

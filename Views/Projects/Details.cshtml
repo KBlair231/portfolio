@@ -1,0 +1,57 @@
+﻿@model ProjectsViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>@Model.Title</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+	<div class="container py-5">
+		<div class="card shadow-lg rounded-4">
+			<div class="card-body p-4">
+
+				<!-- Title -->
+				<h1 class="mb-3" style="text-align: center;">@Model.Title</h1>
+
+				<!-- Description -->
+				<p class="text-muted">@Model.Description</p>
+
+				<!-- Link to Github Repo if available -->
+				@if (!string.IsNullOrEmpty(Model.RepoUrl)) {
+					<p>
+						<a href="@Model.RepoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+							View repository
+						</a>
+					</p>
+				}
+				<!-- Image Carousel -->
+				<div id="projectCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+					<div class="carousel-inner">
+
+						@for (int i = 0; i < Model.ImageUrls.Count; i++) {
+							<div class="carousel-item @(i == 0 ? "active" : "")">
+								<img src="@Model.ImageUrls[i]" class="d-block w-100 rounded-3" style="max-height:800px; object-fit:cover;" />
+							</div>
+						}
+
+					</div>
+
+					<!-- Controls -->
+					<button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
