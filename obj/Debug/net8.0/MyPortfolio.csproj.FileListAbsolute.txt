@@ -228,3 +228,4 @@ D:\College\Portfolio\MyPortfolio\MyPortfolio\obj\Debug\net8.0\refint\MyPortfolio
 D:\College\Portfolio\MyPortfolio\MyPortfolio\obj\Debug\net8.0\MyPortfolio.pdb
 D:\College\Portfolio\MyPortfolio\MyPortfolio\obj\Debug\net8.0\MyPortfolio.genruntimeconfig.cache
 D:\College\Portfolio\MyPortfolio\MyPortfolio\obj\Debug\net8.0\ref\MyPortfolio.dll
+D:\College\Portfolio\MyPortfolio\MyPortfolio\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
