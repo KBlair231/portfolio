@@ -1,5 +1,8 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\KABoom1.png
+wwwroot\images\KABoom2.png
+wwwroot\images\KABoom3.png
 wwwroot\images\moviedb1.png
 wwwroot\images\moviedb2.png
 wwwroot\images\moviedb3.png

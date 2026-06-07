@@ -50,6 +50,18 @@ namespace My_Portfolio.Controllers {
 					"/images/promptquest6.png",
 					"/images/promptquest7.png"
 				}
+			},
+			new() {
+				Id = 4,
+				Title = "KA-Boom",
+				Description = "A simple 2d endless runner game with obstacles the car can collide with.",
+				RepoUrl = "https://microstudio.io/Magyk231/kaboom",
+				ImageUrls = new List<string>
+				{
+					"/images/KABoom1.png",
+					"/images/KABoom2.png",
+					"/images/KABoom3.png"
+				}
 			}
 		};
 		public IActionResult Details(int id) 
