@@ -4,10 +4,24 @@
 // Write your JavaScript code.
 const canvas = document.getElementById("pongCanvas");
 const ctx = canvas.getContext("2d");
+const particles = [];
 
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+}
+// Particles for ball hitting paddles
+function createParticles(x, y, color = "white") {
+    for (let i = 0; i < 12; i++) {
+        particles.push({
+            x,
+            y,
+            dx: (Math.random() - 0.5) * 4,
+            dy: (Math.random() - 0.5) * 4,
+            life: 60,
+            color
+        });
+    }
 }
 
 resize();
@@ -75,6 +89,7 @@ function update() {
         ball.dy = speed * Math.sin(angle);
 
         ball.x = leftPaddle.x + paddleWidth + ball.radius;
+        createParticles(ball.x, ball.y, "white");
     }
 
     // Right paddle collision
@@ -98,6 +113,7 @@ function update() {
         ball.dy = speed * Math.sin(angle);
 
         ball.x = rightPaddle.x - ball.radius;
+        createParticles(ball.x, ball.y, "white");
     }
 
     // Reset ball
@@ -105,35 +121,61 @@ function update() {
         ball.x = canvas.width / 2;
         ball.y = canvas.height / 2;
     }
+
+    // Stops pong ball from being in a perfect horizontal
+    if (Math.abs(ball.dy) < 0.5) {
+        ball.dy += (Math.random() > 0.5 ? 1 : -1) * 0.5;
+    }
+
+    // Update particles
+    for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+
+        p.x += p.dx;
+        p.y += p.dy;
+        p.life--;
+
+        if (p.life <= 0) {
+            particles.splice(i, 1);
+        }
+    };
 }
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // This makes the ball's trail
+    ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Draw the Paddles
     ctx.fillStyle = "white";
 
     ctx.fillRect(
-        leftPaddle.x,
-        leftPaddle.y,
-        paddleWidth,
-        paddleHeight
+        leftPaddle.x, leftPaddle.y, paddleWidth, paddleHeight
     );
 
     ctx.fillRect(
-        rightPaddle.x,
-        rightPaddle.y,
-        paddleWidth,
-        paddleHeight
+        rightPaddle.x, rightPaddle.y, paddleWidth, paddleHeight
     );
-
+    // Draw the Ball
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
     ctx.fill();
+
+    // Draw the particles
+    for (const p of particles) {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.life / 60;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
 }
 
 function gameLoop() {
-    update();
-    draw();
+    update()
+    draw()
     requestAnimationFrame(gameLoop);
 }
 
