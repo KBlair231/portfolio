@@ -31,6 +31,18 @@ body {
 	max-width: 1100px;
 }
 
+.container2 {
+	width: 80%;
+	margin: auto;
+	max-width: 1100px;
+	background-color: white;
+	color: black;
+	border-radius: 10px; 
+	padding: 25px;
+	overflow: hidden;
+	box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
 /* Me */
 .me {
 	background: linear-gradient(blue, lime);
@@ -66,6 +78,15 @@ body {
 	transition: transform .12s ease, box-shadow .12s ease;
 }
 
+.navbar {
+	background-color: #222 !important;
+}
+
+.navbar a,
+.navbar-brand {
+	color: white !important;
+}
+
 .primary {
 	background: #3b82f6;
 	color: white;
@@ -83,7 +104,7 @@ body {
 }
 
 	.section.alt {
-		background: #ffffff;
+		background: transparent;
 	}
 
 /* Project Grid */
@@ -95,6 +116,7 @@ body {
 
 .card {
 	background: white;
+	color: black;
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -116,6 +138,7 @@ body {
 .skills span {
 	display: inline-block;
 	background: #e5e7eb;
+	color: black;
 	padding: 8px 12px;
 	margin: 5px;
 	border-radius: 20px;
@@ -129,6 +152,7 @@ body {
 .main-text {
 	font-size: 17px;
 	text-align: left;
+	color: black;
 }
 
 .title {
@@ -140,4 +164,20 @@ body {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
 	filter: invert(1);
+}
+
+#pongCanvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.25;
+	pointer-events: none;
+}
+
+body {
+	background: #111;
+	color: white;
 }
